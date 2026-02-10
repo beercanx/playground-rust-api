@@ -1,0 +1,31 @@
+# Playground Rust API
+Playing around with Rust and HTTP to provide an API.
+
+## Requirements
+* Rust 1.92
+* _**(Windows only)**_ Build Tools for Visual Studio with these individual components:
+  * Build Tools for Visual Studio can be found via https://visualstudio.microsoft.com/downloads
+  * MSVC Build Tools for x86/x64 (latest)
+  * Windows 11 SDK (10.0.22621.0)
+
+## Doing things
+Its just standard cargo stuff for now
+### Build
+```bash
+cargo build
+```
+### Test
+```bash
+cargo test
+```
+### Run
+```bash
+cargo run
+```
+
+## Reading List
+* https://rust-lang.github.io/rustup/installation/windows-msvc.html
+* https://medium.com/gitconnected/rust-http-server-frameworks-making-the-right-choice-513a61afa674
+* https://medium.com/solo-devs/the-async-runtime-wars-and-why-i-just-want-to-process-some-http-requests-bb445cbdb17f
+* https://medium.com/@AlexanderObregon/building-restful-apis-with-rust-and-warp-70a6159fd804
+* https://dystroy.org/bacon/
