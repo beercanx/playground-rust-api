@@ -22,16 +22,14 @@ jobs:
     strategy:
       matrix:
         platform:
-          - os: ubuntu-latest
-            os_name: Linux-x86_64
+          - os: ubuntu
             binary: playground-rust-api
             archive: playground-rust-api.tar.gz
-          - os: windows-latest
-            os_name: Windows-x86_64
+          - os: windows
             binary: playground-rust-api.exe
             archive: playground-rust-api.zip
 
-    runs-on: ${{ matrix.platform.os }}
+    runs-on: ${{ matrix.platform.os }}-latest
 
     steps:
     - uses: actions/checkout@v6
@@ -51,28 +49,14 @@ jobs:
         rustc --version
         rustup toolchain list
 
-    - name: Rust toolchains
-      run: rustup toolchain list
-
     - name: Build
       run: cargo build --verbose
 
     - name: Run tests
       run: cargo test --verbose
 
-    - name: Package as archive
-      shell: bash
-      run: |
-        cd target/debug
-        if [[ "${{ matrix.platform.os }}" == "windows-latest" ]]; then
-          7z a ../../${{ matrix.platform.archive }} ${{ matrix.platform.binary }}
-        else
-          tar -czvf ../../${{ matrix.platform.archive }} ${{ matrix.platform.binary }}
-        fi
-        cd -
-
     - name: Publish release artifacts
       uses: actions/upload-artifact@v6
       with:
-        name: ${{ matrix.platform.os_name }}
-        path: ${{ matrix.platform.archive }}
+        name: ${{ matrix.platform.os }}
+        path: ${{ github.workspace }}/target/debug/${{ matrix.platform.binary }}
