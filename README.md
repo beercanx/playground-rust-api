@@ -29,3 +29,8 @@ cargo run
 * https://medium.com/solo-devs/the-async-runtime-wars-and-why-i-just-want-to-process-some-http-requests-bb445cbdb17f
 * https://medium.com/@AlexanderObregon/building-restful-apis-with-rust-and-warp-70a6159fd804
 * https://dystroy.org/bacon/
+* https://docs.rs/axum/latest/axum/index.html
+* https://github.com/tokio-rs/axum/blob/main/examples/graceful-shutdown/src/main.rs
+* https://github.com/tokio-rs/axum/blob/main/examples/testing/src/main.rs
+* https://github.com/tokio-rs/axum/blob/main/examples/oauth/src/main.rs
+* https://doc.rust-lang.org/stable/book/index.html
