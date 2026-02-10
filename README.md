@@ -1,5 +1,5 @@
 # Playground Rust API
-Playing around with Rust and HTTP to provide an API.
+Playing around with Rust and HTTP to provide an API using [Axum](https://github.com/tokio-rs/axum).
 
 ## Requirements
 * Rust 1.92
