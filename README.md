@@ -23,6 +23,53 @@ cargo test
 cargo run
 ```
 
+## Endpoints
+```
+curl -v http://127.0.0.1:8080
+
+> GET / HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/8.13.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< content-type: text/plain; charset=utf-8
+< content-length: 13
+< date: Tue, 10 Feb 2026 13:30:56 GMT
+< 
+Hello, World!
+```
+```
+curl -v http://127.0.0.1:8080/json
+
+> GET /json HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/8.13.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< content-type: application/json
+< content-length: 27
+< date: Tue, 10 Feb 2026 13:31:07 GMT
+< 
+{"message":"Hello, World!"}
+```
+```
+curl -v http://127.0.0.1:8080/html
+
+> GET /html HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/8.13.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< content-type: text/html; charset=utf-8
+< content-length: 22
+< date: Tue, 10 Feb 2026 13:31:15 GMT
+< 
+<h1>Hello, World!</h1>
+```
+
 ## Reading List
 * https://rust-lang.github.io/rustup/installation/windows-msvc.html
 * https://medium.com/gitconnected/rust-http-server-frameworks-making-the-right-choice-513a61afa674
