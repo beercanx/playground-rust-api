@@ -1,4 +1,9 @@
 # Playground Rust API
+
+[![Rust](https://github.com/beercanx/playground-rust-api/actions/workflows/rust.yml/badge.svg)](https://github.com/beercanx/playground-rust-api/actions/workflows/rust.yml)
+[![CodeQL](https://github.com/beercanx/playground-rust-api/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/beercanx/playground-rust-api/actions/workflows/github-code-scanning/codeql)
+[![Dependabot Updates](https://github.com/beercanx/playground-rust-api/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/beercanx/playground-rust-api/actions/workflows/dependabot/dependabot-updates)
+
 Playing around with Rust and HTTP to provide an API using [Axum](https://github.com/tokio-rs/axum).
 
 ## Requirements
