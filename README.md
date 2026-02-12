@@ -75,6 +75,42 @@ curl -v http://127.0.0.1:8080/html
 <h1>Hello, World!</h1>
 ```
 
+## Structure
+
+Structure might not be perfect or the idiomatic way for Rust, but in my defense I'm trying to understand it.
+
+```
+Cargo.toml              <-- Project manifest
+src/                    <-- Application code
+src/main.rs             <-- Application entrypoint
+
+src/hello_world         <-- 'Hello, World!' endpoint logic in a module
+
+src/hello_world/html    <-- The HTML handler, plus the unit tests
+src/hello_world/text    <-- The text handler, plus the unit tests
+src/hello_world/json    <-- The JSON handler, plus the unit tests
+src/hello_world/routes  <-- The HTTP routing, plus the HTTP integration tests for the routes
+```
+
+So running the tests looks like this
+```
+cargo test
+   Compiling playground-rust-api v0.1.0
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.64s                                                                                                                                                            
+     Running unittests src\main.rs (target\debug\deps\playground_rust_api-979b419fe12d50ab.exe)
+
+running 7 tests
+test hello_world::json::unit_tests::should_return_json_hello_world ... ok
+test hello_world::html::unit_tests::should_return_html_hello_world ... ok
+test hello_world::text::unit_tests::should_return_text_hello_world ... ok
+test hello_world::routes::integration_tests::not_found ... ok
+test hello_world::routes::integration_tests::hello_world ... ok
+test hello_world::routes::integration_tests::html ... ok
+test hello_world::routes::integration_tests::json ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+```
+
 ## Reading List
 * https://rust-lang.github.io/rustup/installation/windows-msvc.html
 * https://medium.com/gitconnected/rust-http-server-frameworks-making-the-right-choice-513a61afa674
@@ -83,6 +119,14 @@ curl -v http://127.0.0.1:8080/html
 * https://dystroy.org/bacon/
 * https://docs.rs/axum/latest/axum/index.html
 * https://github.com/tokio-rs/axum/blob/main/examples/graceful-shutdown/src/main.rs
-* https://github.com/tokio-rs/axum/blob/main/examples/testing/src/main.rs
 * https://github.com/tokio-rs/axum/blob/main/examples/oauth/src/main.rs
 * https://doc.rust-lang.org/stable/book/index.html
+
+### Testing
+
+When trying to understand where tests can and should be placed, turns out `tests/` is designed for libraries not 
+applications and thus become unsuitable for say API integration tests stored separately. 
+
+* https://github.com/tokio-rs/axum/blob/main/examples/testing/src/main.rs
+* https://doc.rust-lang.org/rust-by-example/testing.html
+* https://github.com/tokio-rs/axum/discussions/1423
