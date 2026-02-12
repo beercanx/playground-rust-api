@@ -121,6 +121,7 @@ test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 * https://github.com/tokio-rs/axum/blob/main/examples/graceful-shutdown/src/main.rs
 * https://github.com/tokio-rs/axum/blob/main/examples/oauth/src/main.rs
 * https://doc.rust-lang.org/stable/book/index.html
+* https://rust-lang.github.io/api-guidelines/naming.html
 
 ### Testing
 
