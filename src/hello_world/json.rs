@@ -18,6 +18,6 @@ mod unit_tests {
     #[tokio::test]
     async fn should_return_json_hello_world() {
         let result: Json<Message> = json().await;
-        assert_eq!(result.0, Message{message:"Hello, World!"});
+        assert_eq!(result.0, Message{message: "Hello, World!"});
     }
 }

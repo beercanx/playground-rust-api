@@ -5,6 +5,6 @@ mod text;
 
 pub use routes::*;
 
-pub use html::*;
-pub use json::*;
-pub use text::*;
+use html::*;
+use json::*;
+use text::*;
