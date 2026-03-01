@@ -56,7 +56,7 @@ jobs:
       run: cargo test --verbose
 
     - name: Publish release artifacts
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: ${{ matrix.platform.os }}
         path: ${{ github.workspace }}/target/debug/${{ matrix.platform.binary }}
